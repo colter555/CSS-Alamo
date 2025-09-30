@@ -7,21 +7,20 @@ body {
   background-attachment: fixed; */
   font-size: 13px;
   background-size: cover;
+  /* ✅ keep browser scroll enabled */
 }
 
 form {
-  width: 100%;
-  max-width: 1080px;             /* cap form width */
+  width: 100% !important;        /* full browser width */
+  max-width: none !important;    /* no cap */
   background-color: #fff;
-  margin: 60px auto;
-  padding: 16px;
+  margin: 0;                     /* no auto centering */
+  padding: 24px;                 /* inner space */
   box-sizing: border-box;
   -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  border-radius: 0;              /* flush with edges */
 }
 
 a:link {
@@ -78,6 +77,12 @@ form textarea {
   max-width: 100% !important;
   min-width: 0 !important;      /* allow shrinking inside cells */
   box-sizing: border-box;
+}
+
+/* ✅ Remove vertical scrollbars inside fields */
+textarea,
+select {
+  overflow-y: hidden !important;
 }
 
 /* Override inline widths your form system may inject */
