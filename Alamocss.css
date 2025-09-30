@@ -48,35 +48,44 @@ input:disabled {
 /* ============================= */
 
 form table {
-  display: table;               /* keep native table layout */
-  width: 100%;                  /* fit inside form */
-  max-width: 100%;
+  display: table !important;    /* force table layout */
+  width: 100% !important;       /* never exceed form */
+  max-width: 100% !important;
   border-collapse: collapse;
-  table-layout: fixed;          /* distribute column widths evenly */
+  table-layout: fixed;          /* columns share available space */
+  overflow: hidden !important;  /* kill scrollbars */
 }
 
 form th,
 form td {
   padding: 6px;
-  overflow: hidden;             /* stop bleed */
-  text-overflow: ellipsis;      /* clip long text with … */
-  white-space: nowrap;          /* keep on one line */
-  /* 👉 If you prefer wrapping instead:
-     white-space: normal;
-     word-break: break-word; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;          /* keeps single line tidy */
+  max-width: 1px;               /* critical: forces shrink-to-fit */
 }
+
+/* 👉 If you prefer wrapping instead of clipping, swap above with:
+   white-space: normal;
+   word-break: break-word;
+   max-width: none;
+*/
 
 form input,
 form select,
 form textarea {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;                 /* prevent intrinsic overflow */
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;      /* allow shrinking inside cells */
   box-sizing: border-box;
 }
 
-/* Neutralize any inline widths injected by form software */
-form table [width] { width: auto !important; }
-form input[style*="width"], 
-form select[style*="width"] { width: 100% !important; }
-
+/* Override inline widths your form system may inject */
+form table [width],
+form table [style*="width"],
+form input[style*="width"],
+form select[style*="width"],
+form textarea[style*="width"] {
+  width: auto !important;
+  max-width: 100% !important;
+}
