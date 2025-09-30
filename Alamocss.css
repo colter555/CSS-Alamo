@@ -10,10 +10,12 @@ body {
 }
 
 form {
-  width: 1080px;
+  width: 100%;
+  max-width: 1080px;             /* cap form width */
   background-color: #fff;
-  margin: 0 auto;
-  margin-top: 60px;
+  margin: 60px auto;
+  padding: 16px;
+  box-sizing: border-box;
   -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
@@ -42,40 +44,39 @@ input:disabled {
 }
 
 /* ============================= */
-/* ✅ Add these fixes after base */
+/* ✅ Table fixes: no bleeding   */
 /* ============================= */
 
-/* Keep form contained */
-form {
-  width: 100%;
-  max-width: 1080px;
-  padding: 16px;
-  box-sizing: border-box;
-}
-
-/* Responsive table */
 form table {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  display: table;               /* keep native table layout */
+  width: 100%;                  /* fit inside form */
+  max-width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: fixed;          /* distribute column widths evenly */
 }
 
-/* Cells wrap instead of expanding */
 form th,
 form td {
-  white-space: normal;
-  word-break: break-word;
   padding: 6px;
+  overflow: hidden;             /* stop bleed */
+  text-overflow: ellipsis;      /* clip long text with … */
+  white-space: nowrap;          /* keep on one line */
+  /* 👉 If you prefer wrapping instead:
+     white-space: normal;
+     word-break: break-word; */
 }
 
-/* Inputs don’t push table wider */
 form input,
 form select,
 form textarea {
-  max-width: 100%;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;                 /* prevent intrinsic overflow */
   box-sizing: border-box;
 }
+
+/* Neutralize any inline widths injected by form software */
+form table [width] { width: auto !important; }
+form input[style*="width"], 
+form select[style*="width"] { width: 100% !important; }
+
