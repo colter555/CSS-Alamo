@@ -1,25 +1,29 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
-  background-color: #006747;
-  margin: 0 auto;
-  /*background-image:url();
-  background-attachment: fixed; */
+  background-color: #006747;  /* green background */
+  margin: 0;
   font-size: 13px;
   background-size: cover;
+
+  display: flex;
+  justify-content: center;     /* center horizontally */
+  align-items: center;         /* center vertically */
+  min-height: 100vh;           /* full viewport height */
+  padding: 40px;               /* green padding all around */
+  box-sizing: border-box;
 }
 
 form {
-  width: 100%;                  /* ✅ full width */
-  max-width: none;              /* remove 1080px cap */
+  width: 100%;
+  max-width: 1400px;           /* ✅ more form space */
   background-color: #fff;
-  margin: 0;                     /* flush with edges */
-  margin-top: 60px;
+  padding: 32px;               /* inner breathing room */
+  box-sizing: border-box;
+
   -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
   border-radius: 10px;
 }
 
