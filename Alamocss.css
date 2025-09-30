@@ -1,26 +1,27 @@
+/* Screen styles */
 body {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
-  background-color: #006747;  /* green background */
+  background-color: #006747;
   margin: 0;
   font-size: 13px;
   background-size: cover;
 
   display: flex;
-  justify-content: center;     /* center horizontally */
-  align-items: center;         /* center vertically */
-  min-height: 100vh;           /* full viewport height */
-  padding: 40px;               /* green padding all around */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
   box-sizing: border-box;
 }
 
 form {
   width: 100%;
-  max-width: 1400px;           /* ✅ more form space */
+  max-width: 1400px;   /* more space for desktop */
   background-color: #fff;
-  padding: 32px;               /* inner breathing room */
+  padding: 32px;
+  margin: auto;
   box-sizing: border-box;
-
   -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
@@ -44,4 +45,52 @@ select:disabled,
 textarea:disabled,
 input:disabled {
   font-weight: bold;
+}
+
+/* ============================= */
+/* ✅ Print styles (portrait fit)*/
+/* ============================= */
+@media print {
+  @page {
+    size: A4 portrait;          /* force portrait */
+    margin: 12mm;               /* safe printable margins */
+  }
+
+  body {
+    background: #fff !important;
+    margin: 0;
+    display: block !important;
+    padding: 0;
+  }
+
+  form {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0;
+    padding: 12px;
+    box-shadow: none !important;
+    border-radius: 0;
+    page-break-inside: avoid;
+    transform: scale(0.95);     /* ✅ shrink slightly */
+    transform-origin: top left; /* anchor scaling */
+  }
+
+  table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: auto !important;
+    font-size: 10pt !important; /* ✅ smaller text to fit */
+  }
+
+  th, td {
+    white-space: normal !important;
+    word-break: break-word;
+    padding: 4px;
+  }
+
+  /* Hide link styling in print */
+  a:link, a:visited, a:hover {
+    color: black !important;
+    text-decoration: none !important;
+  }
 }
