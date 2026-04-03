@@ -1,68 +1,110 @@
-/* Screen styles */
+/* ============================= */
+/* Screen styles                 */
+/* ============================= */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  width: auto;
   background-color: #006747;
   margin: 0;
   font-size: 16px;
   background-size: cover;
-
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
-  padding: 5px;
+  padding: 16px;
   box-sizing: border-box;
 }
 
-input, textarea, select {
-  font-size: 16px !important;
-  padding: 4px !important;
+/* Make sizing behave more predictably */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-input[type="radio"] {
-  transform: scale(1.15);
-  margin-right: 6px;
-}
-
-input[type="radio"] + label,
-input[type="radio"] ~ label {
-  font-size: 16px !important;
-}
-
+/* Main form container */
 form {
   width: 100%;
-  max-width: 1400px;
+  max-width: 950px;
   background-color: #fff;
-  padding: 32px;
-  margin: auto;
-  box-sizing: border-box;
-  -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+  padding: 24px;
+  margin: 0 auto;
   box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   border-radius: 10px;
 }
 
-a:link {
-  color: #0422cc;
-  text-decoration: underline;
-}
-a:visited {
-  color: #fc0000;
-  text-decoration: underline;
-}
-a:hover {
-  color: #362e2e;
-  text-decoration: underline;
+/* General text inputs */
+input,
+textarea,
+select {
+  font-size: 16px !important;
+  line-height: 1.4;
+  padding: 6px 8px !important;
 }
 
+/* Textareas usually need a little more room */
+textarea {
+  min-height: 90px;
+}
+
+/* Radio + checkbox controls */
+input[type="radio"],
+input[type="checkbox"] {
+  transform: scale(1.15);
+  margin-right: 6px;
+}
+
+/* Try common label patterns */
+input[type="radio"] + label,
+input[type="radio"] ~ label,
+input[type="checkbox"] + label,
+input[type="checkbox"] ~ label {
+  font-size: 16px !important;
+  line-height: 1.4;
+}
+
+/* Fallback for systems that wrap choice text oddly */
+label {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Disabled fields */
 select:disabled,
 textarea:disabled,
 input:disabled {
   font-weight: bold;
 }
 
-/* Print styles */
+/* Link styling */
+a:link {
+  color: #0422cc;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #fc0000;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #362e2e;
+  text-decoration: underline;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  vertical-align: top;
+  word-break: break-word;
+}
+
+/* ============================= */
+/* Print styles                  */
+/* ============================= */
 @media print {
   @page {
     size: A4 portrait;
@@ -74,34 +116,45 @@ input:disabled {
     margin: 0;
     display: block !important;
     padding: 0;
+    min-height: auto;
   }
 
   form {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0;
-    padding: 12px;
+    padding: 10px;
     box-shadow: none !important;
     border-radius: 0;
-    page-break-inside: avoid;
-    transform: scale(0.95);
-    transform-origin: top left;
+    page-break-inside: auto;
+    transform: none;
+  }
+
+  input,
+  textarea,
+  select,
+  label,
+  table,
+  th,
+  td {
+    font-size: 10pt !important;
   }
 
   table {
     width: 100% !important;
-    max-width: 100% !important;
     table-layout: auto !important;
-    font-size: 10pt !important;
   }
 
-  th, td {
+  th,
+  td {
     white-space: normal !important;
     word-break: break-word;
     padding: 4px;
   }
 
-  a:link, a:visited, a:hover {
+  a:link,
+  a:visited,
+  a:hover {
     color: black !important;
     text-decoration: none !important;
   }
