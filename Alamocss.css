@@ -1,3 +1,76 @@
+/* Screen styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #006747;
+  margin: 0;
+  font-size: 16px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select {
+  font-size: 16px !important;
+  padding: 6px !important;
+  line-height: 1.4;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  transform: scale(1.15);
+  margin-right: 6px;
+}
+
+input[type="radio"] + label,
+input[type="radio"] ~ label,
+input[type="checkbox"] + label,
+input[type="checkbox"] ~ label,
+label {
+  font-size: 16px !important;
+  line-height: 1.4;
+}
+
+form {
+  width: 100%;
+  max-width: 950px;
+  background-color: #fff;
+  padding: 24px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+  box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+  border-radius: 10px;
+}
+
+a:link {
+  color: #0422cc;
+  text-decoration: underline;
+}
+a:visited {
+  color: #fc0000;
+  text-decoration: underline;
+}
+a:hover {
+  color: #362e2e;
+  text-decoration: underline;
+}
+
+select:disabled,
+textarea:disabled,
+input:disabled {
+  font-weight: bold;
+}
 @media print {
   @page {
     size: letter portrait;
