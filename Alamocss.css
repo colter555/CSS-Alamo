@@ -1,23 +1,38 @@
 /* Screen styles */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
+  width: auto;
   background-color: #006747;
   margin: 0;
-  font-size: 13px;
+  font-size: 16px;
   background-size: cover;
 
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 40px;
+  padding: 5px;
   box-sizing: border-box;
+}
+
+input, textarea, select {
+  font-size: 16px !important;
+  padding: 4px !important;
+}
+
+input[type="radio"] {
+  transform: scale(1.15);
+  margin-right: 6px;
+}
+
+input[type="radio"] + label,
+input[type="radio"] ~ label {
+  font-size: 16px !important;
 }
 
 form {
   width: 100%;
-  max-width: 1400px;   /* more space for desktop */
+  max-width: 1400px;
   background-color: #fff;
   padding: 32px;
   margin: auto;
@@ -47,13 +62,11 @@ input:disabled {
   font-weight: bold;
 }
 
-/* ============================= */
-/* ✅ Print styles (portrait fit)*/
-/* ============================= */
+/* Print styles */
 @media print {
   @page {
-    size: A4 portrait;          /* force portrait */
-    margin: 12mm;               /* safe printable margins */
+    size: A4 portrait;
+    margin: 12mm;
   }
 
   body {
@@ -71,15 +84,15 @@ input:disabled {
     box-shadow: none !important;
     border-radius: 0;
     page-break-inside: avoid;
-    transform: scale(0.95);     /* ✅ shrink slightly */
-    transform-origin: top left; /* anchor scaling */
+    transform: scale(0.95);
+    transform-origin: top left;
   }
 
   table {
     width: 100% !important;
     max-width: 100% !important;
     table-layout: auto !important;
-    font-size: 10pt !important; /* ✅ smaller text to fit */
+    font-size: 10pt !important;
   }
 
   th, td {
@@ -88,7 +101,6 @@ input:disabled {
     padding: 4px;
   }
 
-  /* Hide link styling in print */
   a:link, a:visited, a:hover {
     color: black !important;
     text-decoration: none !important;
