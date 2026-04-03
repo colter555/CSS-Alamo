@@ -62,3 +62,66 @@ input:disabled {
   font-weight: bold;
 }
 
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm; /* tighter margins */
+  }
+
+  body {
+    background: #fff !important;
+    margin: 0;
+    display: block !important;
+    padding: 0;
+  }
+
+  form {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0;
+    padding: 6px;
+    box-shadow: none !important;
+    border-radius: 0;
+
+    transform: scale(0.85); /* 🔥 more aggressive shrink */
+    transform-origin: top left;
+  }
+
+  table {
+    width: 100% !important;
+    table-layout: auto !important;
+    font-size: 9pt !important;
+  }
+
+  input,
+  textarea,
+  select,
+  label,
+  p,
+  div,
+  span {
+    font-size: 9pt !important;
+    line-height: 1.2 !important;
+  }
+
+  th, td {
+    padding: 2px !important;
+  }
+
+  /* 🚫 Prevent page breaks */
+  form,
+  table,
+  tr,
+  td,
+  th,
+  div {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Hide links styling */
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+}
