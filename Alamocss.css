@@ -1,84 +1,103 @@
-/* Screen styles */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  width: auto;
-  background-color: #006747;
+  background: #ffffff;
   margin: 0;
-  font-size: 16px;
-  background-size: cover;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 5px;
-  box-sizing: border-box;
-}
-
-input, textarea, select {
-  font-size: 16px !important;
-  padding: 4px !important;
-}
-
-input[type="radio"] {
-  transform: scale(1.15);
-  margin-right: 6px;
-}
-
-input[type="radio"] + label,
-input[type="radio"] ~ label {
-  font-size: 16px !important;
+  padding: 10px;
+  font-size: 14px;
 }
 
 form {
   width: 100%;
-  max-width: 1400px;
-  background-color: #fff;
-  padding: 32px;
-  margin: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #ffffff;
   box-sizing: border-box;
-  -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
-  box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
-  border-radius: 10px;
+  box-shadow: none;
+  border-radius: 0;
 }
 
-a:link {
-  color: #0422cc;
-  text-decoration: underline;
-}
-a:visited {
-  color: #fc0000;
-  text-decoration: underline;
-}
-a:hover {
-  color: #362e2e;
-  text-decoration: underline;
+input,
+textarea,
+select,
+label {
+  font-size: 14px !important;
+  line-height: 1.2 !important;
 }
 
-select:disabled,
-textarea:disabled,
-input:disabled {
-  font-weight: bold;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th,
+td {
+  padding: 2px;
+  word-break: break-word;
+  white-space: normal;
 }
 
 @media print {
+  @page {
+    size: letter portrait;
+    margin: 0.4in;
+  }
 
-  /* 🚫 Hide scripts and non-visual elements */
+  html,
+  body {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    background-image: none !important;
+  }
+
   script,
   style,
-  noscript {
+  noscript,
+  iframe {
     display: none !important;
   }
 
-  /* Sometimes NextGen wraps content weirdly */
-  [style*="position: absolute"],
-  [style*="position:absolute"] {
-    display: none !important;
+  form {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 6px !important;
+    background: #fff !important;
+    border: 0 !important;
   }
 
-  /* Hide anything overflowing weirdly */
-  body * {
-    overflow: visible !important;
+  table {
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td,
+  input,
+  textarea,
+  select,
+  label,
+  div,
+  span,
+  p {
+    font-size: 10pt !important;
+    line-height: 1.15 !important;
+    padding: 2px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
   }
 }
