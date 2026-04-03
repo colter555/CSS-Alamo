@@ -39,7 +39,64 @@ td {
 }
 
 @media print {
-  body > div:first-child {
-    display: none !important;
+  @page {
+    size: letter portrait;
+    margin: 0.5in;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  form,
+  form * {
+    visibility: visible !important;
+  }
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    overflow: visible !important;
+  }
+
+  body {
+    display: block !important;
+  }
+
+  form {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
+
+  table {
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td,
+  input,
+  textarea,
+  select,
+  label,
+  div,
+  span,
+  p {
+    font-size: 10pt !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+    white-space: normal !important;
   }
 }
