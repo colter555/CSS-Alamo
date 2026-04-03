@@ -61,8 +61,8 @@ input:disabled {
 
 @media print {
   @page {
-    size: letter portrait;
-    margin: 0.5in;
+    size: landscape;
+    margin: 0.35in;
   }
 
   html,
@@ -73,11 +73,11 @@ input:disabled {
     width: 100% !important;
     min-height: auto !important;
     display: block !important;
+    font-size: 9pt !important;
   }
 
   body {
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 10pt !important;
+    transform: none !important;
   }
 
   form {
@@ -93,38 +93,62 @@ input:disabled {
   table {
     width: 100% !important;
     border-collapse: collapse !important;
-    table-layout: auto !important;
+    table-layout: fixed !important;
   }
 
   th,
   td {
     padding: 2px 4px !important;
     vertical-align: top !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
   }
 
   input,
   textarea,
   select {
-    font-size: 10pt !important;
-    padding: 2px !important;
-    box-sizing: border-box !important;
     width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 9pt !important;
+    padding: 2px !important;
   }
 
   textarea {
-    min-height: 36px !important;
+    min-height: 30px !important;
     resize: none !important;
   }
 
-  input[type="radio"] {
-    transform: none !important;
-    margin-right: 4px !important;
+  /* Column widths */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 8% !important;
+    white-space: nowrap !important;
   }
 
-  a {
-    color: #000 !important;
-    text-decoration: none !important;
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 16% !important;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 30% !important;
+  }
+
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 8% !important;
+  }
+
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 20% !important;
+  }
+
+  th:nth-child(6),
+  td:nth-child(6) {
+    width: 18% !important;
   }
 
   * {
