@@ -63,13 +63,22 @@ input:disabled {
 }
 
 @media print {
-  * {
-    all: unset;
+
+  /* 🚫 Hide scripts and non-visual elements */
+  script,
+  style,
+  noscript {
+    display: none !important;
   }
 
-  body {
-    display: block;
-    font-family: Arial, sans-serif;
-    font-size: 10pt;
+  /* Sometimes NextGen wraps content weirdly */
+  [style*="position: absolute"],
+  [style*="position:absolute"] {
+    display: none !important;
+  }
+
+  /* Hide anything overflowing weirdly */
+  body * {
+    overflow: visible !important;
   }
 }
