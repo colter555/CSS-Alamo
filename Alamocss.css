@@ -61,3 +61,35 @@ textarea:disabled,
 input:disabled {
   font-weight: bold;
 }
+
+@media print {
+  body, form, table, th, td, input, textarea, select, label, div, span, p {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  form {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px !important;
+    margin: 0 !important;
+  }
+
+  table {
+    width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  th, td {
+    font-size: 10pt !important;
+    padding: 2px !important;
+    word-break: break-word !important;
+  }
+}
