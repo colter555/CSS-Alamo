@@ -6,7 +6,6 @@ body {
   margin: 0;
   font-size: 16px;
   background-size: cover;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,8 +36,6 @@ form {
   padding: 32px;
   margin: auto;
   box-sizing: border-box;
-  -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
   border-radius: 10px;
 }
@@ -62,3 +59,142 @@ input:disabled {
   font-weight: bold;
 }
 
+/* Print styles */
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 0.4in;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 11pt !important;
+    min-height: auto !important;
+    display: block !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  form,
+  form * {
+    visibility: visible !important;
+  }
+
+  form {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #999 !important;
+    padding: 3px !important;
+    vertical-align: middle !important;
+    word-wrap: break-word !important;
+  }
+
+  th {
+    white-space: nowrap !important;
+  }
+
+  /* Column sizing */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 8% !important;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 18% !important;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 34% !important;
+  }
+
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 10% !important;
+  }
+
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 18% !important;
+  }
+
+  th:nth-child(6),
+  td:nth-child(6) {
+    width: 12% !important;
+  }
+
+  /* Inputs fill their cells cleanly */
+  input,
+  textarea,
+  select {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 10pt !important;
+    padding: 2px 4px !important;
+    border: 1px solid #aaa !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  textarea {
+    min-height: 48px !important;
+    resize: none !important;
+  }
+
+  /* Literal text/header blocks */
+  .widthPercent100,
+  .fdWrap,
+  literal-text-item,
+  literal-text-item > div,
+  literal-text-item .pageItem {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Keep blue header bars visible in print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Optional: slightly tighten long text */
+  p,
+  div,
+  span,
+  label {
+    line-height: 1.2 !important;
+  }
+
+  /* Hide obvious UI-only stuff if needed */
+  button,
+  .formFooter,
+  .no-print {
+    display: none !important;
+  }
+}
