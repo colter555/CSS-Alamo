@@ -1,0 +1,138 @@
+/* Screen styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  background-color: #006747;
+  margin: 0;
+  font-size: 13px;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+form {
+  width: 100%;
+  max-width: 1400px;
+  background-color: #fff;
+  padding: 32px;
+  margin: auto;
+  box-sizing: border-box;
+  -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+  box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+  border-radius: 10px;
+}
+
+a:link {
+  color: #0422cc;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #fc0000;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #362e2e;
+  text-decoration: underline;
+}
+
+select:disabled,
+textarea:disabled,
+input:disabled {
+  font-weight: bold;
+}
+
+/* Print styles */
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 0.15in;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  body {
+    display: block !important;
+    font-size: 8pt !important;
+  }
+
+  form {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+
+    zoom: 0.72;
+  }
+
+  table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: auto !important;
+    border-collapse: collapse !important;
+    font-size: 7.5pt !important;
+  }
+
+  th,
+  td {
+    padding: 1px 2px !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    line-height: 1.05 !important;
+  }
+
+  input,
+  select,
+  textarea {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-height: 0 !important;
+  }
+
+  input[type="text"],
+  input:not([type]),
+  textarea {
+    font-size: 16px !important;
+  }
+
+  select,
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="button"],
+  input[type="submit"] {
+    font-size: 7.5pt !important;
+  }
+
+  p,
+  div,
+  span,
+  label {
+    line-height: 1.05 !important;
+  }
+
+  a:link,
+  a:visited,
+  a:hover {
+    color: black !important;
+    text-decoration: none !important;
+  }
+}
