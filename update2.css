@@ -52,18 +52,18 @@ input:disabled {
 /* Print styles */
 @media print {
   @page {
-    size: A4 portrait;
-    margin: 8mm;
+    size: letter portrait;
+    margin: 0.25in;
   }
 
   html,
   body {
-    width: 210mm;
-    height: 297mm;
+    background: #fff !important;
     margin: 0 !important;
     padding: 0 !important;
-    background: #fff !important;
-    overflow: hidden !important;
+    width: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
   }
 
   body {
@@ -72,7 +72,7 @@ input:disabled {
   }
 
   form {
-    width: 194mm !important;
+    width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -80,14 +80,13 @@ input:disabled {
     border-radius: 0 !important;
     box-sizing: border-box !important;
 
-    transform: scale(0.82);
-    transform-origin: top left;
+    zoom: 0.82;
   }
 
   table {
     width: 100% !important;
     max-width: 100% !important;
-    table-layout: fixed !important;
+    table-layout: auto !important;
     border-collapse: collapse !important;
     font-size: 8pt !important;
   }
@@ -96,7 +95,7 @@ input:disabled {
   td {
     padding: 2px !important;
     white-space: normal !important;
-    overflow-wrap: anywhere !important;
+    overflow-wrap: break-word !important;
     word-break: normal !important;
   }
 
